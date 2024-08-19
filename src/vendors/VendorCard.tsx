@@ -61,7 +61,7 @@ export default function VendorCard({ vendor, onRemove }: VendorCardProps) {
           <br />
           {vendor.address}
           <br />
-          {vendor.city} {vendor.state}, {vendor.zip}
+          {vendor.city},  {vendor.state} {vendor.zip}
           <br />
           {vendor.phone}
           <br />
