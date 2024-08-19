@@ -97,7 +97,8 @@ function App() {
               <Route path="/" />
               <Route path="vendors" element={<VendorsPage />} />
               <Route path="vendors/create" element={<VendorCreatePage />} />
-              <Route path="vendors/edit/:id" element={<VendorEditPage />} />
+              <Route path="vendor/edit/:id" element={<VendorEditPage />} />
+
             </Routes>
           </section>
         </main>

@@ -1,12 +1,14 @@
-import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
+import { SyntheticEvent } from "react";
 import { Vendor } from "./Vendor";
+import { Dropdown } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 interface VendorCardProps {
-  vendor: Vendor; 
+  vendor: Vendor;
   onRemove: (vendor: Vendor) => void;
 }
 
-export default function VendorCard({ vendor }: VendorCardProps) {
+export default function VendorCard({ vendor, onRemove }: VendorCardProps) {
   return (
     <>
       <div className="card w-25">
@@ -27,35 +29,39 @@ export default function VendorCard({ vendor }: VendorCardProps) {
               <strong>{vendor.name}</strong> <span className="badge text-bg-secondary">{vendor.code}</span>{" "}
             </span>
             <div className="dropdown d-inline">
-              <button
-                className="btn btn-light"
-                style={{ background: "none" }}
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <svg className="bi pe-none me-2" width={20} height={20} fill="#007AFF">
-                  <use xlinkHref={`${bootstrapIcons}#three-dots-vertical`} />
-                </svg>
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <a href="vendor-edit.html" className="dropdown-item" type="button">
-                    Edit
-                  </a>
-                </li>
-                <li>
-                  <button className="dropdown-item" type="button">
-                    Delete
-                  </button>
-                </li>
-              </ul>
+              <Dropdown aria-expanded="false">
+                <Dropdown.Toggle variant="" className="no-caret">
+                  {/* <span className="text-primary fw-semibold "> */}
+                  <svg className=" m-2 text-primary" width={30} height={20} fill="currentColor">
+                    <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#three-dots-vertical" />
+                  </svg>
+                  {/* </span> */}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <li>
+                    <NavLink to={`/vendor/edit/${vendor.id}`} className="dropdown-item">
+                      Edit
+                    </NavLink>
+                  </li>
+                  <li>
+                    <a
+                      className="small dropdown-item"
+                      onClick={(event: SyntheticEvent) => {
+                        event.preventDefault();
+                        onRemove(vendor);
+                      }}
+                    >
+                      Delete
+                    </a>
+                  </li>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
           <br />
           {vendor.address}
           <br />
-          {vendor.state} {vendor.zip}
+          {vendor.city} {vendor.state}, {vendor.zip}
           <br />
           {vendor.phone}
           <br />

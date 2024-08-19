@@ -36,11 +36,12 @@ export default function VendorForm() {
       }
       navigate("/vendors");
     } catch (error: any) {
-//      toast.error(error.message);
+      //      toast.error(error.message);
     }
   };
 
   return (
+  <>
     <form className="d-flex flex-wrap w-75 gap-2" onSubmit={handleSubmit(save)} noValidate>
       <div className="row-1 d-flex flex-row w-100 gap-4">
         <div className="mb-3 w-25">
@@ -55,7 +56,9 @@ export default function VendorForm() {
             {...register("code", { required: "Vendor code is required" })}
             autoFocus
           />
+          <div className="invalid-feedback">{errors?.code?.message}</div>
         </div>
+
         <div className="mb-3 w-75">
           <label htmlFor="name" className="form-label">
             Vendor Name
@@ -68,6 +71,7 @@ export default function VendorForm() {
             {...register("name", { required: "Vendor name is required" })}
             autoFocus
           />
+          <div className="invalid-feedback">{errors?.name?.message}</div>
         </div>
       </div>
       <div className="row-2 d-flex flex-row w-100 gap-4">
@@ -75,19 +79,35 @@ export default function VendorForm() {
           <label htmlFor="address" className="form-label">
             Address
           </label>
-          <input id="address" type="text" className="form-control" placeholder="Enter vendor's address" />
+          <input
+            id="address"
+            type="text"
+            className="form-control"
+            placeholder="Enter vendor's address"
+            {...register("address", { required: "Vendor address is required" })}
+            autoFocus
+          />
+          <div className="invalid-feedback">{errors?.address?.message}</div>
         </div>
-      </div>
-      <div className="row-3 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-50">
-          <label htmlFor="" className="form-label">
-            City
-          </label>
-          <input type="text" className="form-control" placeholder="Enter city" />
-        </div>
-        <div className="mb-3 w-25">
+
+        <div className="row-3 d-flex flex-row w-100 gap-4">
+          <div className="mb-3 w-50">
+            <label htmlFor="" className="form-label">
+              City
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter city"
+              {...register("city", { required: "Vendor city is required" })}
+              autoFocus
+            />
+            <div className="invalid-feedback">{errors?.city?.message}</div>
+                      
+          </div>
+          <div className="mb-3 mt-2 w-25">
           <label htmlFor="form-label">State</label>
-          <select className="form-select">
+          <select className="form-select" {...register("state")}>
             <option value="">Select state...</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -142,27 +162,58 @@ export default function VendorForm() {
             <option value="WY">Wyoming</option>
           </select>
         </div>
+        
+          
+            
+            <div className="invalid-feedback">{errors?.state?.message}</div>
+       
+
+        
         <div className="mb-3 w-25">
           <label htmlFor="" className="form-label">
             Zip
           </label>
-          <input type="text" className="form-control" placeholder="Enter zip code" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter zip code"
+            {...register("zip", { required: "Vendor zip code is required" })}
+            autoFocus
+          />
+          <div className="invalid-feedback">{errors?.zip?.message}</div>
         </div>
       </div>
+        </div>
+
+ 
+
       <div className="row-1 d-flex flex-row w-100 gap-4">
         <div className="mb-3 w-50">
           <label htmlFor="" className="form-label">
             Phone
           </label>
-          <input type="text" className="form-control" placeholder="Enter phone number" />
+          <input type="text" 
+          className="form-control" 
+          {...register("phone")}
+          autoFocus
+          placeholder="Enter phone number" 
+        />
+        
         </div>
+
         <div className="mb-3 w-50">
           <label htmlFor="" className="form-label">
             Email
           </label>
-          <input type="email" className="form-control" placeholder="Enter email address" />
+          <input type="email" 
+          className="form-control" 
+          placeholder="Enter email address" 
+          {...register("email")}
+          autoFocus
+          />
         </div>
       </div>
+
       <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">
         <div className="d-flex justify-content-end mt-4">
           <Link className="btn btn-outline-primary me-2" to={"/vendors"}>
@@ -178,4 +229,5 @@ export default function VendorForm() {
       </div>
     </form>
   );
+  </>)
 }
