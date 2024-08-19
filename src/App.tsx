@@ -4,14 +4,24 @@ import { BrowserRouter, Link, NavLink, Route, Routes } from "react-router-dom";
 import VendorCreatePage from "./vendors/VendorCreatePage";
 import VendorEditPage from "./vendors/VendorEditPage";
 import VendorsPage from "./vendors/VendorsPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
+    
       <div>
         <header className="container-fluid bg-body-secondary py-4 px-5 d-flex justify-content-between border-bottom border-1 border-success border-success-subtle">
           <div>
-            <svg  className="me-2" id="logo-35" width={50} height={39} viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="me-2"
+              id="logo-35"
+              width={50}
+              height={39}
+              viewBox="0 0 50 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" className="ccompli1 " fill="#007AFF" />
               <path
                 d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
@@ -30,7 +40,8 @@ function App() {
         </header>
 
         <main className="d-flex p-0">
-          <nav className="bg-body-secondary vh-100 px-1 py-3 border-end border-2" style={{width:"18rem" }}>
+
+          <nav className="bg-body-secondary vh-100 px-1 py-3 border-end border-2" style={{ width: "18rem" }}>
             {/* <div className="btn-group dropend">
               <button
                 type="button"
@@ -91,14 +102,25 @@ function App() {
               </li>
             </ul>
           </nav>
-
+          <Toaster
+            toastOptions={{
+              success: {
+                iconTheme: {
+                  primary: "#0d6efd",
+                  secondary: "white",
+                },
+              },
+              style: {
+                maxWidth: 500,
+              },
+            }}
+          /> 
           <section className="container-fluid p-5">
             <Routes>
               <Route path="/" />
               <Route path="vendors" element={<VendorsPage />} />
               <Route path="vendors/create" element={<VendorCreatePage />} />
               <Route path="vendor/edit/:id" element={<VendorEditPage />} />
-
             </Routes>
           </section>
         </main>

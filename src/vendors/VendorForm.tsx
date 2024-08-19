@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Vendor } from "./Vendor";
 //import toast from "react-hot-toast";
 import { vendorAPI } from "./VendorAPI";
+import toast from "react-hot-toast";
 
 export default function VendorForm() {
   //we will navigate back to the main page when save
@@ -34,9 +35,12 @@ export default function VendorForm() {
       } else {
         await vendorAPI.put(vendor);
       }
+
+  toast.success("Successfully Saved!")
+
       navigate("/vendors");
     } catch (error: any) {
-      //      toast.error(error.message);
+         toast.error(error.message);
     }
   };
 

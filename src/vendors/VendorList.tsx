@@ -2,17 +2,25 @@ import { useEffect, useState } from "react";
 import { Vendor } from "./Vendor";
 import { vendorAPI } from "./VendorAPI";
 import VendorCard from "./VendorCard";
+import toast from "react-hot-toast";
 
 function VendorList() {
   const [vendors, setVendors] = useState<Vendor[]>([]);
   const [busy, setBusy] = useState(false);
 
   async function loadVendors() {
-    setBusy(true);
-    let data = await vendorAPI.list();
-    setVendors(data);
-    setBusy(false);
+    try {
+      setBusy(true);
+      const data = await vendorAPI.list();
+      setVendors(data);
+    }
+    catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      setBusy(false);
+    }
   }
+    
 
   useEffect(() => {
     loadVendors();
