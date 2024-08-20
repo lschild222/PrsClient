@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
-
 import { SyntheticEvent } from "react";
 import { Product } from "./Product";
 
@@ -9,10 +8,19 @@ interface ProductCardProps {
   product: Product;
   onRemove: (product: Product) => void;
 }
-
 function ProductCard({ product, onRemove }: ProductCardProps) {
   return (
     <div className="card mt-" style={{ width: "18rem" }}>
+      <div className="progress">
+        <div
+          className="progress-bar bg-primary"
+          role="progressbar"
+          style={{ width: "60%" }}
+          aria-valuenow={60}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        />
+      </div>
       <div className="card-body">
         <div className=" d-flex justify-content-between  ">
           <div className="mb-4">
@@ -22,15 +30,13 @@ function ProductCard({ product, onRemove }: ProductCardProps) {
 
           <Dropdown aria-expanded="false">
             <Dropdown.Toggle variant="" className="no-caret">
-              {/* <span className="text-primary fw-semibold "> */}
               <svg className=" m-2 text-primary" width={30} height={20} fill="currentColor">
                 <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#three-dots-vertical" />
               </svg>
-              {/* </span> */}
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <li>
-                <NavLink to={`/product/edit/${product.id}`} className="dropdown-item">
+                <NavLink to={`/products/edit/${product.id}`} className="dropdown-item">
                   Edit
                 </NavLink>
               </li>
@@ -48,9 +54,7 @@ function ProductCard({ product, onRemove }: ProductCardProps) {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-
         <section>
-          {/* <p className="text-secondary m-0 p-0">{product.unit}</p> */}
           <p className="text-secondary m-0 p-0">{product.vendor?.name}</p>
           <mark className=" rounded card-text bg-primary-subtle text-secondary ">{product.partNbr}</mark>
         </section>

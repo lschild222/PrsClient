@@ -8,7 +8,6 @@ export class Product {
   unit = "";
   photoPath = "";
   vendorId: number | undefined;
-
   vendor: Vendor | undefined;
 
   get isNew(): boolean {

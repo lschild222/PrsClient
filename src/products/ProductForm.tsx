@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
@@ -6,6 +6,7 @@ import { vendorAPI } from "../vendors/VendorAPI";
 import { Vendor } from "../vendors/Vendor";
 import { Product } from "./Product";
 import { productAPI } from "./ProductAPI";
+import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 
 function ProductForm() {
   const navigate = useNavigate();
@@ -123,15 +124,15 @@ function ProductForm() {
           </div>
 
           <div className=" offset-7">
-            <NavLink to="/products" className="btn btn-outline-primary me-2 form-check">
-              Cancel
-            </NavLink>
-            <button className="btn btn-primary form-check">
-              <svg className="me-2" width={15} height={23} fill="currentColor">
-                <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#save" />
-              </svg>
-              Save Product
-            </button>
+          <Link className="btn btn-outline-primary me-2" to={"/products"}>
+            Cancel
+          </Link>
+          <button className="btn btn-primary">
+            <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
+              <use xlinkHref={`${bootstrapIcons}#save`} />
+            </svg>
+            Save Product
+          </button>
           </div>
         </form>
       </div>

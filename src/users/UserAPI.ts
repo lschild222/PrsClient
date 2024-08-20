@@ -41,7 +41,7 @@ export const userAPI = {
           "Content-Type": "application/json",
         },
       }).then(checkStatus);
-      // .then(parseJSON);
+   
     },
   
     delete(id: number) {

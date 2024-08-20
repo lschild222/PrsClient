@@ -6,8 +6,8 @@ function ProductsPage() {
     <>
       <header className="d-flex justify-content-between mb-0 ">
         <h2>Products</h2>
-        <Link to="/vendors/create" role="button" className="btn btn-outline-primary">
-          + Add Vendor
+        <Link to="/products/create" role="button" className="btn btn-outline-primary">
+          + Add New Product
         </Link>
       </header>
 

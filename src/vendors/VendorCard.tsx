@@ -31,11 +31,9 @@ export default function VendorCard({ vendor, onRemove }: VendorCardProps) {
             <div className="dropdown d-inline">
               <Dropdown aria-expanded="false">
                 <Dropdown.Toggle variant="" className="no-caret">
-                  {/* <span className="text-primary fw-semibold "> */}
                   <svg className=" m-2 text-primary" width={30} height={20} fill="currentColor">
                     <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#three-dots-vertical" />
                   </svg>
-                  {/* </span> */}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <li>
@@ -61,7 +59,7 @@ export default function VendorCard({ vendor, onRemove }: VendorCardProps) {
           <br />
           {vendor.address}
           <br />
-          {vendor.city},  {vendor.state} {vendor.zip}
+          {vendor.city}, {vendor.state} {vendor.zip}
           <br />
           {vendor.phone}
           <br />
