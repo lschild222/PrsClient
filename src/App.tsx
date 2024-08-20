@@ -8,6 +8,9 @@ import { Toaster } from "react-hot-toast";
 import UserEditPage from "./users/UserEditPage";
 import UserCreatePage from "./users/UserCreatePage";
 import UsersPage from "./users/UsersPage";
+import ProductEditPage from "./products/ProductEditPage";
+import ProductCreatePage from "./products/ProductCreatePage";
+import ProductsPage from "./products/ProductsPage";
 
 function App() {
   return (
@@ -101,10 +104,12 @@ function App() {
               <Route path="vendors" element={<VendorsPage />} />
               <Route path="vendors/create" element={<VendorCreatePage />} />
               <Route path="vendor/edit/:id" element={<VendorEditPage />} />
-              <Route path="/" />
               <Route path="users" element={<UsersPage />} />
               <Route path="users/create" element={<UserCreatePage />} />
               <Route path="users/edit/:id" element={<UserEditPage />} />
+              <Route path="products" element={<ProductsPage />} />
+              <Route path="products/create" element={<ProductCreatePage />} />
+              <Route path="products/edit/:id" element={<ProductEditPage />} />
             </Routes>
           </section>
         </main>
