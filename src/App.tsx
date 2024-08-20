@@ -5,6 +5,9 @@ import VendorCreatePage from "./vendors/VendorCreatePage";
 import VendorEditPage from "./vendors/VendorEditPage";
 import VendorsPage from "./vendors/VendorsPage";
 import { Toaster } from "react-hot-toast";
+import UserEditPage from "./users/UserEditPage";
+import UserCreatePage from "./users/UserCreatePage";
+import UsersPage from "./users/UsersPage";
 
 function App() {
   return (
@@ -42,30 +45,7 @@ function App() {
         <main className="d-flex p-0">
 
           <nav className="bg-body-secondary vh-100 px-1 py-3 border-end border-2" style={{ width: "18rem" }}>
-            {/* <div className="btn-group dropend">
-              <button
-                type="button"
-                className="btn text-primary dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                + Create New
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <NavLink className="dropdown-item">Create Request</NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item">Create Vendor</NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item">Create Product</NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item">Create User</NavLink>
-                </li>
-              </ul>
-            </div> */}
+       
             <ul className="nav nav-pills flex-column ps-4 pe-4">
               <li className="mb-2 text-secondary">Purchases</li>
               <li className="nav-item">
@@ -121,6 +101,10 @@ function App() {
               <Route path="vendors" element={<VendorsPage />} />
               <Route path="vendors/create" element={<VendorCreatePage />} />
               <Route path="vendor/edit/:id" element={<VendorEditPage />} />
+              <Route path="/" />
+              <Route path="users" element={<UsersPage />} />
+              <Route path="users/create" element={<UserCreatePage />} />
+              <Route path="users/edit/:id" element={<UserEditPage />} />
             </Routes>
           </section>
         </main>
@@ -131,27 +115,4 @@ function App() {
 
 export default App;
 
-//Main layout for UI
 
-{
-  /* <div className="d-flex justify-content-between">
-              <h3>Vendors</h3>
-              <NavLink to="create-vendor.html" className="btn btn-primary">
-                + Create New Vendor
-              </NavLink>
-            </div>
-            <hr /> */
-}
-{
-  /* <section className=" bg-body-secondary rounded d-flex flex-wrap  ">
-              <div className="card m-3" style={{ width: "18rem" }}>
-                <div className="card-body">
-                  <h5 className="card-title">Vendor</h5>
-                  <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                  <p className="card-text p-0 m-0">Address</p>
-                  <p className="card-text p-0 m-0">Phone Number</p>
-                  <p className="card-text p-0 m-0">Email</p>
-                </div>
-              </div>
-            </section> */
-}
