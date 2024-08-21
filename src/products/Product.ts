@@ -7,7 +7,7 @@ export class Product {
   price = "";
   unit = "";
   photoPath = "";
-  vendorId: number | undefined;
+  vendorID: number | undefined;
   vendor: Vendor | undefined;
 
   get isNew(): boolean {
@@ -23,6 +23,6 @@ export class Product {
     if (initializer.price) this.price = initializer.price;
     if (initializer.unit) this.unit = initializer.unit;
     if (initializer.photoPath) this.photoPath = initializer.photoPath;
-    if (initializer.vendorId) this.vendorId = initializer.vendorId;
+    if (initializer.vendorId) this.vendorID = initializer.vendorId;
   }
 }

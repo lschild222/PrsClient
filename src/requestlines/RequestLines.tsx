@@ -1,6 +1,6 @@
 
-export default function RequestlinesPage() {
+export class RequestLines {
     return (
-      <div>Requestlines</div>
+      <div>RequestLines</div>
     )
   }

@@ -110,8 +110,8 @@ function ProductForm() {
             </label>
             <select
               id="vendor"
-              {...register("vendorId", { required: "Vendor is Required" })}
-              className={`form-select ${errors.vendorId && "is-invalid"}`}
+              {...register("vendorID", { required: "Vendor is Required" })}
+              className={`form-select ${errors.vendorID && "is-invalid"}`}
             >
               <option value="">Select...</option>
               {vendors.map((vendor) => (
@@ -120,19 +120,19 @@ function ProductForm() {
                 </option>
               ))}
             </select>
-            <div className="invalid-feedback">{errors?.vendorId?.message}</div>
+            <div className="invalid-feedback">{errors?.vendorID?.message}</div>
           </div>
 
           <div className=" offset-7">
-          <Link className="btn btn-outline-primary me-2" to={"/products"}>
-            Cancel
-          </Link>
-          <button className="btn btn-primary">
-            <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
-              <use xlinkHref={`${bootstrapIcons}#save`} />
-            </svg>
-            Save Product
-          </button>
+            <Link className="btn btn-outline-primary me-2" to={"/products"}>
+              Cancel
+            </Link>
+            <button className="btn btn-primary">
+              <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
+                <use xlinkHref={`${bootstrapIcons}#save`} />
+              </svg>
+              Save Product
+            </button>
           </div>
         </form>
       </div>
