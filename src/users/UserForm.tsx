@@ -36,7 +36,7 @@ export default function UserForm() {
 
       toast.success("Successfully Saved!");
 
-      // navigate("/users");
+      navigate("/users");
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -66,7 +66,7 @@ export default function UserForm() {
             </label>
             <input
               id="password"
-              type="text"
+              type="password"
               className="form-control"
               placeholder="Enter password"
               {...register("password", { required: "Password is required" })}
@@ -131,33 +131,30 @@ export default function UserForm() {
           </div>
 
           <div className="row-4 d-flex flex-row w-100 gap-4">
-          <div className="mb-3 w-25">
-            <label className="form-label">Role</label>
-            <br />
-            <div className="form-check form-check-inline">
-              <input type="checkbox" className="form-check-input" {...register("isReviewer")} />
-              <label className="form-check-label">Reviewer</label>
+            <div className="mb-3 w-25">
+              <label className="form-label">Role</label>
+              <br />
+              <div className="form-check form-check-inline">
+                <input type="checkbox" className="form-check-input" {...register("isReviewer")} />
+                <label className="form-check-label">Reviewer</label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input type="checkbox" className="form-check-input" {...register("isAdmin")} />
+                <label className="form-check-label">Admin</label>
+              </div>
             </div>
-            <div className="form-check form-check-inline">
-              <input type="checkbox" className="form-check-input" {...register("isAdmin")} />
-              <label className="form-check-label">Admin</label>
+
+            <div className="row-5 d-flex flex-row justify-content-end w-100 gap-4">
+              <div className="d-flex justify-content-center gap-3 mt-4">
+                <Link className="btn btn-outline-secondary mt-4 mb-2" to={"/users"}>
+                  Cancel
+                </Link>
+                <button className="btn btn-primary mt-4">Save user</button>
+              </div>
             </div>
           </div>
-          
-          <div className="row-5 d-flex flex-row justify-content-end w-100 gap-4">
-            <div className="d-flex justify-content-center gap-3 mt-4">
-              <Link className="btn btn-outline-secondary mt-4 mb-2" to={"/users"}>
-                Cancel
-              </Link>
-              <button className="btn btn-primary mt-4">
-                Save user
-              </button>
-            </div>
-          </div>
-        </div>
         </div>
       </form>
     </>
-
   );
 }

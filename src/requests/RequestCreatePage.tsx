@@ -6,7 +6,9 @@ export default function RequestCreatePage() {
         <h2>Add New Request</h2>
       </nav>
 
-      <section className="d-flex bg-light gap-5 p-4 rounded-4 flex-wrap">
+      <section className="bg-body-secondary gap-5 p-4 rounded-4">
+      {/* <section className="d-flex bg-light gap-5 p-4 rounded-4 flex-wrap"> */}
+
         <RequestForm />
       </section>
     </>

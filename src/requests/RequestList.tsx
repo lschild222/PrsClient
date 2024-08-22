@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Request } from "./Request";
+import { Request } from "./Request"
 import { requestAPI } from "./RequestAPI";
 import RequestCard from "./RequestCard";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
 
 function RequestList() {
   const [requests, setRequests] = useState<Request[]>([]);
@@ -44,13 +43,7 @@ function RequestList() {
           </div>
         </section>
       )}
-      <header className=" mt-3 ms-4 d-flex justify-content-between">
-        <h3>Requests</h3>
-        <Link to={"/requests/create"} className="btn btn-outline-secondary">
-          + Add Request
-        </Link>
-      </header>
-      <hr />
+     
       <section className="p-5">
         <section className="border border-1 p-3 bg-body-secondary rounded d-flex flex-wrap">
           <section className="d-flex flex-wrap gap-5 list">

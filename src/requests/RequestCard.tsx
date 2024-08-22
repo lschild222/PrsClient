@@ -1,65 +1,64 @@
-import { NavLink } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Dropdown } from "react-bootstrap";
-import { SyntheticEvent } from "react";
+import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 import { Request } from "./Request";
+import Dropdown from "react-bootstrap/Dropdown";
+import { SyntheticEvent } from "react";
 
 interface RequestCardProps {
   request: Request;
   onRemove: (request: Request) => void;
 }
-function RequestCard({ request, onRemove }: RequestCardProps) {
-  return (
-    <div className="card mt-" style={{ width: "18rem" }}>
-      <div className="progress">
-        <div
-          className="progress-bar bg-primary"
-          role="progressbar"
-          style={{ width: "60%" }}
-          aria-valuenow={60}
-          aria-valuemin={0}
-          aria-valuemax={100}
-        />
-      </div>
-      <div className="card-body">
-        <div className=" d-flex justify-content-between  ">
-          <div className="mb-4">
-            <h5 className="card-title">{request.name}</h5>
-            <span className="">${request.price} /each</span>
-          </div>
+export default function RequestCard({ request, onRemove }: RequestCardProps) {
+  function badgeType(request: Request) {
+    let badgeInfo;
+    if (request.status === "NEW") {
+      badgeInfo = "text-bg-primary";
+    } else if (request.status === "APPROVED") {
+      badgeInfo = "text-bg-success";
+    } else if (request.status === "REJECTED") {
+      badgeInfo = "text-bg-danger";
+    } else if (request.status === "REVIEW") {
+      badgeInfo = "text-bg-warning";
+    }
+    return badgeInfo;
+  }
 
-          <Dropdown aria-expanded="false">
-            <Dropdown.Toggle variant="" className="no-caret">
-              <svg className=" m-2 text-primary" width={30} height={20} fill="currentColor">
-                <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#three-dots-vertical" />
+  return (
+    <>
+      <tr>
+        <th scope="row">{request.id}</th>
+        <td>
+          {request.description} <br />
+        </td>
+        <td>
+          <span className={`badge ${badgeType(request)}`}>{request.status}</span>
+        </td>
+        <td>${request.total}</td>
+        {request.user?.firstname} {request.user?.lastname}
+        <br />
+        <span className="text-body-secondary small text-wrap">{request.deliveryMode}</span>
+        <td>
+          <Dropdown>
+            <Dropdown.Toggle variant="" id="dropdown-basic" className="no-arrow">
+              <svg className="bi pe-none me-2" width={20} height={20} fill="#007AFF">
+                <use xlinkHref={`${bootstrapIcons}#three-dots-vertical`} />
               </svg>
             </Dropdown.Toggle>
+
             <Dropdown.Menu>
-              <li>
-                <NavLink to={`/requests/edit/${request.id}`} className="dropdown-item">
-                  Edit
-                </NavLink>
-              </li>
-              <li>
-                <a
-                  className="small dropdown-item"
-                  onClick={(event: SyntheticEvent) => {
-                    event.preventDefault();
-                    onRemove(request);
-                  }}
-                >
-                  Delete
-                </a>
-              </li>
+              <Dropdown.Item href={`requests/detail/${request.id}`}>Review</Dropdown.Item>
+              <Dropdown.Item href={`requests/edit/${request.id}`}>Edit</Dropdown.Item>
+              <Dropdown.Item
+                onClick={(event: SyntheticEvent) => {
+                  event.preventDefault();
+                  onRemove(request);
+                }}
+              >
+                Remove
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        </div>
-        <section>
-          <p className="text-secondary m-0 p-0">{request.vendor?.name}</p>
-          <mark className=" rounded card-text bg-primary-subtle text-secondary ">{request.partNbr}</mark>
-        </section>
-      </div>
-    </div>
+        </td>
+      </tr>
+    </>
   );
 }
-export default RequestCard;

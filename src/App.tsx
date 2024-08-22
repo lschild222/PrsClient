@@ -11,12 +11,14 @@ import UsersPage from "./users/UsersPage";
 import ProductEditPage from "./products/ProductEditPage";
 import ProductCreatePage from "./products/ProductCreatePage";
 import ProductsPage from "./products/ProductsPage";
-
+import RequestCreatePage from "./requests/RequestCreatePage";
+import RequestEditPage from "./requests/RequestEditPage";
+import RequestsPage from "./requests/RequestsPage";
+import RequestDetailPage from "./requests/RequestDetail";
 
 function App() {
   return (
     <BrowserRouter>
-    
       <div>
         <header className="container-fluid bg-body-secondary py-4 px-5 d-flex justify-content-between border-bottom border-1 border-success border-success-subtle">
           <div>
@@ -47,9 +49,7 @@ function App() {
         </header>
 
         <main className="d-flex p-0">
-
           <nav className="bg-body-secondary vh-100 px-1 py-3 border-end border-2" style={{ width: "18rem" }}>
-       
             <ul className="nav nav-pills flex-column ps-4 pe-4">
               <li className="mb-2 text-secondary">Purchases</li>
               <li className="nav-item">
@@ -98,7 +98,7 @@ function App() {
                 maxWidth: 500,
               },
             }}
-          /> 
+          />
           <section className="container-fluid p-5">
             <Routes>
               <Route path="/" />
@@ -111,6 +111,10 @@ function App() {
               <Route path="products" element={<ProductsPage />} />
               <Route path="products/create" element={<ProductCreatePage />} />
               <Route path="products/edit/:id" element={<ProductEditPage />} />
+              <Route path="requests" element={<RequestsPage />} />
+              <Route path="requests/create" element={<RequestCreatePage />} />
+              <Route path="requests/edit/:id" element={<RequestEditPage />} />
+              <Route path="requests/detail/:requestId" element={<RequestDetailPage />} />
             </Routes>
           </section>
         </main>
@@ -120,5 +124,3 @@ function App() {
 }
 
 export default App;
-
-
