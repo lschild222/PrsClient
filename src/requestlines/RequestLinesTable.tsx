@@ -16,13 +16,14 @@ function RequestLinesTable({ request, onRemove }: RequestLinesTableProps) {
           <th>Price</th>
           <th>Quantity</th>
           <th>Amount</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         {request.requestLines?.map((requestline) => (
           <tr key={requestline.id}>
             <td>{requestline.product?.name}</td>
-            <td>{requestline.product?.price}</td>
+            <td>${requestline.product?.price}</td>
             <td>{requestline.quantity}</td>
 
             <td>${(requestline.product?.price ?? 0) * (requestline.quantity ?? 0)} </td>
@@ -41,6 +42,17 @@ function RequestLinesTable({ request, onRemove }: RequestLinesTableProps) {
           </tr>
         ))}
       </tbody>
+      <tfoot>
+        <tr>
+
+          <td><strong>Total Price</strong>  </td>
+          
+          <td></td>
+          <td></td>
+          <td>${request.total}</td>
+          <td></td>
+        </tr>
+      </tfoot>
     </table>
   );
 }

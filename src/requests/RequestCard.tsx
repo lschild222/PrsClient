@@ -33,9 +33,10 @@ export default function RequestCard({ request, onRemove }: RequestCardProps) {
           <span className={`badge ${badgeType(request)}`}>{request.status}</span>
         </td>
         <td>${request.total}</td>
-        {request.user?.firstname} {request.user?.lastname}
-        <br />
-        <span className="text-body-secondary small text-wrap">{request.deliveryMode}</span>
+        <td>{request.user?.firstname} {request.user?.lastname}</td>
+        
+      
+        {/* <span className="text-body-secondary small text-wrap">{request.deliveryMode}</span> */}
         <td>
           <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic" className="no-arrow">

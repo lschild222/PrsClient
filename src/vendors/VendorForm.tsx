@@ -36,202 +36,201 @@ export default function VendorForm() {
         await vendorAPI.put(vendor);
       }
 
-  toast.success("Successfully Saved!")
+      toast.success("Successfully Saved!");
 
       navigate("/vendors");
     } catch (error: any) {
-         toast.error(error.message);
+      toast.error(error.message);
     }
   };
 
   return (
-  <>
-    <form className="d-flex flex-wrap w-75 gap-2" onSubmit={handleSubmit(save)} noValidate>
-      <div className="row-1 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-25">
-          <label htmlFor="code" className="form-label">
-            Vendor Code
-          </label>
-          <input
-            id="code"
-            type="text"
-            className={`form-control ${errors.code && "is-invalid"}`}
-            placeholder="Enter short vendor code"
-            {...register("code", { required: "Vendor code is required" })}
-            autoFocus
-          />
-          <div className="invalid-feedback">{errors?.code?.message}</div>
+    <>
+      <form className="d-flex flex-wrap w-75 gap-2" onSubmit={handleSubmit(save)} noValidate>
+        <div className="row-1 d-flex flex-row w-100 gap-4">
+          <div className="mb-3 w-25">
+            <label htmlFor="code" className="form-label">
+              Vendor Code
+            </label>
+            <input
+              id="code"
+              type="text"
+              className={`form-control ${errors.code && "is-invalid"}`}
+              placeholder="Enter short vendor code"
+              {...register("code", { required: "Vendor code is required" })}
+              autoFocus
+            />
+            <div className="invalid-feedback">{errors?.code?.message}</div>
+          </div>
+
+          <div className="mb-3 w-75">
+            <label htmlFor="name" className="form-label">
+              Vendor Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              className={`form-control ${errors.name && "is-invalid"}`}
+              placeholder="Enter vendor name"
+              {...register("name", { required: "Vendor name is required" })}
+              autoFocus
+            />
+            <div className="invalid-feedback">{errors?.name?.message}</div>
+          </div>
+        </div>
+        <div className="row-2 d-flex flex-row w-100 gap-4">
+          <div className="mb-3 w-100">
+            <label htmlFor="address" className="form-label">
+              Address
+            </label>
+            <input
+              id="address"
+              type="text"
+              className={`form-control ${errors.address && "is-invalid"}`}
+              placeholder="Enter vendor's address"
+              {...register("address", { required: "Vendor address is required" })}
+              autoFocus
+            />
+            <div className="invalid-feedback">{errors?.address?.message}</div>
+          </div>
+
+          <div className="row-3 d-flex flex-row w-100 gap-4">
+            <div className="mb-3 w-50">
+              <label htmlFor="" className="form-label">
+                City
+              </label>
+              <input
+                type="text"
+                className={`form-control ${errors.city && "is-invalid"}`}
+                placeholder="Enter city"
+                {...register("city", { required: "Vendor city is required" })}
+                autoFocus
+              />
+              <div className="invalid-feedback">{errors?.city?.message}</div>
+            </div>
+            <div className="mb-3 mt-2 w-25">
+              <label htmlFor="State">State</label>
+              <select
+                id="State"
+                className={`form-select ${errors.state && "is-invalid"}`}
+                {...register("state", { required: "State is required" })}
+              >
+                <option value="">Select state...</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+
+            <div className="invalid-feedback">{errors?.state?.message}</div>
+
+            <div className="mb-3 w-25">
+              <label htmlFor="" className="form-label">
+                Zip
+              </label>
+              <input
+                type="text"
+                className={`form-control ${errors.name && "is-invalid"}`}
+                placeholder="Enter zip code"
+                {...register("zip", { required: "Vendor zip code is required" })}
+                autoFocus
+              />
+              <div className="invalid-feedback">{errors?.zip?.message}</div>
+            </div>
+          </div>
         </div>
 
-        <div className="mb-3 w-75">
-          <label htmlFor="name" className="form-label">
-            Vendor Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            className={`form-control ${errors.name && "is-invalid"}`}
-            placeholder="Enter vendor name"
-            {...register("name", { required: "Vendor name is required" })}
-            autoFocus
-          />
-          <div className="invalid-feedback">{errors?.name?.message}</div>
-        </div>
-      </div>
-      <div className="row-2 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-100">
-          <label htmlFor="address" className="form-label">
-            Address
-          </label>
-          <input
-            id="address"
-            type="text"
-            className="form-control"
-            placeholder="Enter vendor's address"
-            {...register("address", { required: "Vendor address is required" })}
-            autoFocus
-          />
-          <div className="invalid-feedback">{errors?.address?.message}</div>
-        </div>
-
-        <div className="row-3 d-flex flex-row w-100 gap-4">
+        <div className="row-1 d-flex flex-row w-100 gap-4">
           <div className="mb-3 w-50">
             <label htmlFor="" className="form-label">
-              City
+              Phone
             </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter city"
-              {...register("city", { required: "Vendor city is required" })}
+              {...register("phone")}
+              autoFocus
+              placeholder="Enter phone number"
+            />
+          </div>
+
+          <div className="mb-3 w-50">
+            <label htmlFor="" className="form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Enter email address"
+              {...register("email")}
               autoFocus
             />
-            <div className="invalid-feedback">{errors?.city?.message}</div>
-                      
           </div>
-          <div className="mb-3 mt-2 w-25">
-          <label htmlFor="form-label">State</label>
-          <select className="form-select" {...register("state")}>
-            <option value="">Select state...</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-          </select>
-        </div>
-        
-          
-            
-            <div className="invalid-feedback">{errors?.state?.message}</div>
-       
-
-        
-        <div className="mb-3 w-25">
-          <label htmlFor="" className="form-label">
-            Zip
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter zip code"
-            {...register("zip", { required: "Vendor zip code is required" })}
-            autoFocus
-          />
-          <div className="invalid-feedback">{errors?.zip?.message}</div>
-        </div>
-      </div>
         </div>
 
- 
-
-      <div className="row-1 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-50">
-          <label htmlFor="" className="form-label">
-            Phone
-          </label>
-          <input type="text" 
-          className="form-control" 
-          {...register("phone")}
-          autoFocus
-          placeholder="Enter phone number" 
-        />
-        
+        <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">
+          <div className="d-flex justify-content-end mt-4">
+            <Link className="btn btn-outline-primary me-2" to={"/vendors"}>
+              Cancel
+            </Link>
+            <button className="btn btn-primary">
+              <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
+                <use xlinkHref={`${bootstrapIcons}#save`} />
+              </svg>
+              Save vendor
+            </button>
+          </div>
         </div>
-
-        <div className="mb-3 w-50">
-          <label htmlFor="" className="form-label">
-            Email
-          </label>
-          <input type="email" 
-          className="form-control" 
-          placeholder="Enter email address" 
-          {...register("email")}
-          autoFocus
-          />
-        </div>
-      </div>
-
-      <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">
-        <div className="d-flex justify-content-end mt-4">
-          <Link className="btn btn-outline-primary me-2" to={"/vendors"}>
-            Cancel
-          </Link>
-          <button className="btn btn-primary">
-            <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
-              <use xlinkHref={`${bootstrapIcons}#save`} />
-            </svg>
-            Save vendor
-          </button>
-        </div>
-      </div>
-    </form>
+      </form>
+      );
+    </>
   );
-  </>)
 }

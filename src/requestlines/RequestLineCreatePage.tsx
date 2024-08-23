@@ -1,6 +1,15 @@
+import RequestLineForm from "./RequestLineForm";
 
-export class RequestLines {
-    return (
-      <div>RequestLines</div>
-    )
-  }
+function RequestLineCreatePage() {
+  return (
+    <>
+      <nav className="d-flex justify-content-between">
+        <h4>New Requestline</h4>
+      </nav>
+      <hr />
+      <RequestLineForm />
+    </>
+  );
+}
+
+export default RequestLineCreatePage;

@@ -44,9 +44,9 @@ function RequestList() {
         </section>
       )}
      
-      <section className="p-5">
+      <section className="">
         <section className="border border-1 p-3 bg-body-secondary rounded d-flex flex-wrap">
-          <section className="d-flex flex-wrap gap-5 list">
+          <section className="d-flex flex-wrap gap-5 ">
             <div className=" p-1 rounded-3 bg-body-secondary ">
               <div className="p-0 m-2">
                 <table className="table">

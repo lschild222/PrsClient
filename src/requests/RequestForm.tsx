@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useForm, SubmitHandler, set } from "react-hook-form";
+import { useForm, SubmitHandler} from "react-hook-form";
 import { useState } from "react";
 import { userAPI } from "../users/UserAPI";
 import { User } from "../users/User";
