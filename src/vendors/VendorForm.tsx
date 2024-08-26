@@ -2,7 +2,6 @@ import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Vendor } from "./Vendor";
-//import toast from "react-hot-toast";
 import { vendorAPI } from "./VendorAPI";
 import toast from "react-hot-toast";
 
